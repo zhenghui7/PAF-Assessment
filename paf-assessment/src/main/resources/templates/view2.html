@@ -16,24 +16,28 @@
 	<button><a href="/">Back</a></button>
 	<br>
 	<br>
-		<table data-th-object="${breweryInfo}">
-			<tr>
-				<td>Description</td>
-				<td data-th-text="*{description}"></td>
-			</tr>
-			<tr>
-				<td>Address</td>
-				<td data-th-text="*{address1 + ' ' + city}"></td>
-			</tr>
-			<tr>
-				<td>Phone</td>
-				<td data-th-text="*{phone}"></td>
-			</tr>
-			<tr>
-				<td>Website</td>
-				<td data-th-text="*{website}"></td>
-			</tr>
-		</table>
+	<table data-th-object="${breweryInfo}">
+		<tr>
+			<td>Description</td>
+			<td data-th-text="*{description}"></td>
+		</tr>
+		<tr>
+			<td>Address</td>
+			<td data-th-text="*{address1 + ' ' + city}"></td>
+		</tr>
+		<tr>
+			<td>Phone</td>
+			<td data-th-text="*{phone}"></td>
+		</tr>
+		<tr>
+			<td>Website</td>
+			<td data-th-text="*{website}"></td>
+			<!-- <a
+				data-th-href="@{INPUT LINK }">
+				<span data-th-text="*{website}"></span>
+			</a> -->
+		</tr>
+	</table>
 	<br>
 	<!-- change path to POST order for next task-->
 	<h2>Beers</h2>

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import ibf2022.assessment.paf.batch3.models.Beer;
 import ibf2022.assessment.paf.batch3.models.Brewery;
+import ibf2022.assessment.paf.batch3.models.OrderDetails;
 import ibf2022.assessment.paf.batch3.models.Style;
 import ibf2022.assessment.paf.batch3.repositories.BeerRepository;
 import ibf2022.assessment.paf.batch3.repositories.OrderRepository;
@@ -21,11 +22,14 @@ public class BeerService {
 	OrderRepository orderRepository;
 	
 	// DO NOT CHANGE THE METHOD'S NAME OR THE RETURN TYPE OF THIS METHOD
-	public String placeOrder(/* You can add any number parameters here */) {
+	public String placeOrder(OrderDetails orderDetails) {
 		// TODO: Task 5 
+		
+		orderRepository.insertOrder(orderDetails);
 		
 		return "";
 	}
+
 
 	public List<Style> getStyles() {
 		return beerRepository.getStyles();
