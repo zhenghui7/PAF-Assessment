@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<!-- DO NOT MODIFY THIS FILE -->
+
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Brewery</title>
+</head>
+
+<body>
+	<br>
+	<h1><span data-th-text="*{breweryName}"></span> </h1>
+	<button><a href="/">Back</a></button>
+	<br>
+	<br>
+		<table data-th-object="${breweryInfo}">
+			<tr>
+				<td>Description</td>
+				<td data-th-text="*{description}"></td>
+			</tr>
+			<tr>
+				<td>Address</td>
+				<td data-th-text="*{address1 + ' ' + city}"></td>
+			</tr>
+			<tr>
+				<td>Phone</td>
+				<td data-th-text="*{phone}"></td>
+			</tr>
+			<tr>
+				<td>Website</td>
+				<td data-th-text="*{website}"></td>
+			</tr>
+		</table>
+	<br>
+	<!-- change path to POST order for next task-->
+	<h2>Beers</h2>
+	<button><a href="/">Place Order</a></button>
+	<br>
+	<br>
+	<table border="1">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Description</th>
+				<th>Quantity</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr data-th-each="s: ${BrewBeerList}" data-th-object="${s}">
+				<td>
+					<span data-th-text="*{beerName}"></span>
+				</td>
+				<td>
+					<span data-th-text="*{beerDescription}"></span>
+				</td>
+				<td>
+					<input type="number" name="quantity" data-th-field="*{quantity}" step="1">
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div data-th-if="${display}">
+		<h4>Brewery not found</h4>
+	</div>
+
+</body>
+
+</html>

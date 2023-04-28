@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<!-- DO NOT MODIFY THIS FILE -->
+
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Breweries</title>
+</head>
+
+<body>
+	<br>
+	<h1><span data-th-text="*{styleName}"></span> </h1>
+	<button><a href="/">Back</a></button>
+	<br>
+	<br>
+	<table border="1">
+		<thead>
+			<tr>
+				<th>Beer Name</th>
+				<th>Description</th>
+				<th>Brewery Name</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr data-th-each="s: ${beerList}" data-th-object="${s}">
+				<td>
+					<span data-th-text="*{beerName}"></span>
+				</td>
+				<td>
+					<span data-th-text="*{beerDescription}"></span>
+				</td>
+				<td>
+					<!-- link to task 4 -->
+					<a
+						data-th-href="@{/beer/brewery/{id}?breweryName={breweryName}(id=*{breweryId}, breweryName=*{breweryName})}">
+						<span data-th-text="*{breweryName}"></span>
+					</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div data-th-if="${display}">
+		<h4>No beers found for this style</h4>
+	</div>
+
+</body>
+
+</html>

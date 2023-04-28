@@ -1,6 +1,9 @@
 package ibf2022.assessment.paf.batch3.models;
 
 import java.util.List;
+
+import org.springframework.jdbc.support.rowset.SqlRowSet;
+
 import java.util.LinkedList;
 
 // DO NOT MODIFY THIS FILE.
@@ -80,5 +83,18 @@ public class Brewery {
 		return "Brewery [breweryId=" + breweryId + ", name=" + name + ", address1=" + address1 + ", address2="
 				+ address2 + ", city=" + city + ", phone=" + phone + ", website=" + website + ", description="
 				+ description + ", beers=" + beers + "]";
+	}
+	public static Brewery createFromRs(SqlRowSet rs) {
+
+		Brewery b = new Brewery();
+		b.setBreweryId(rs.getInt("id"));
+		b.setName(rs.getString("name"));
+		b.setAddress1(rs.getString("address1"));
+		b.setAddress2(rs.getString("address2"));
+		b.setCity(rs.getString("city"));
+		b.setPhone(rs.getString("phone"));
+		b.setWebsite(rs.getString("website"));
+		b.setDescription(rs.getString("descript"));
+		return b;
 	}
 }

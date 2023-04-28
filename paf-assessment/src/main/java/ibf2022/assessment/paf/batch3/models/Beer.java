@@ -1,5 +1,7 @@
 package ibf2022.assessment.paf.batch3.models;
 
+import org.springframework.jdbc.support.rowset.SqlRowSet;
+
 // DO NOT MODIFY THIS FILE.
 
 public class Beer {
@@ -47,4 +49,19 @@ public class Beer {
 		return "Beer [beerId=" + beerId + ", beerName=" + beerName + ", beerDescription=" + beerDescription
 				+ ", breweryId=" + breweryId + ", breweryName=" + breweryName + "]";
 	}
+	public static Beer convertFromSqlRowSet(SqlRowSet rs) {
+		Beer b = new Beer();
+		b.setBeerDescription(rs.getString("beerDescription"));
+		b.setBeerName(rs.getString("beerName"));
+		b.setBeerId(Integer.parseInt(rs.getString("beerId")));
+		b.setBreweryId(Integer.parseInt(rs.getString("breweryId")));
+		b.setBreweryName(rs.getString("breweryName"));
+		return b;
+	}
+    public static Beer BeerListfromSqlRs(SqlRowSet rs) {
+		Beer b = new Beer();
+		b.setBeerDescription(rs.getString("descript"));
+		b.setBeerName(rs.getString("name"));
+		return b;
+    }
 }
